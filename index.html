@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Quotes App</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Цитати</h1>
+        <label>
+            <input type="checkbox" v-model="showWithAuthor"> Показати з автором
+        </label>
+        <button @click="sortQuotes">Сортувати за прізвищем</button>
+        <ul>
+            <li v-for="quote in filteredQuotes" :style="quoteWithColor(quote)">
+                "{{ quote.quote }}" - {{ quote.source || 'Автор невідомий' }}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
